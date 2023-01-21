@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Button } from "../../button";
+import DeleteModal from "../../modal";
 
 import { useComment } from "../useComment";
 import styles from "./styles.module.scss";
@@ -8,9 +9,9 @@ import styles from "./styles.module.scss";
 const Header = () => {
   const {
     onReply,
-    onDelete,
     onEdit,
     currentUser,
+    openModal,
     comment: {
       createdAt,
       user: { image, username },
@@ -30,7 +31,7 @@ const Header = () => {
       <div className={styles.actionButtons}>
         {ownedByCurrentUser ? (
           <>
-            <Button variant="warning" onClick={onDelete}>
+            <Button variant="warning" onClick={openModal}>
               <img src="./images/icon-delete.svg" aria-hidden="true" />
               Delete
             </Button>

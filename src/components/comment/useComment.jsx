@@ -6,6 +6,11 @@ const CommentContextProvider = ({ children, data }) => {
   const [comment, setComment] = useState(data.comment);
   const [isReplying, setReplying] = useState(false);
   const [isEditing, setEditing] = useState(false);
+  const [modal, setModal] = useState(false);
+
+  const openModal = () => {
+    setModal(!modal);
+  };
 
   const onReply = () => {
     setReplying(!isReplying);
@@ -16,7 +21,7 @@ const CommentContextProvider = ({ children, data }) => {
   };
 
   const onDelete = () => {
-    if (window.confirm("Are you sure?")) setComment(null);
+    setComment(null);
   };
 
   const onUpdate = (newComment) => {
@@ -67,10 +72,12 @@ const CommentContextProvider = ({ children, data }) => {
       onEdit,
       onUpdate,
       onNewReply,
+      openModal,
       onPositiveAction,
       onNegativeAction,
       isReplying,
       isEditing,
+      modal,
     }),
     [isReplying, comment, isEditing]
   );

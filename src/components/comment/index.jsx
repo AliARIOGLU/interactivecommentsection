@@ -7,9 +7,10 @@ import { NewCommentEditor } from "../new-comment-editor";
 
 import styles from "./styles.module.scss";
 import { CommentContextProvider, useComment } from "./useComment";
+import DeleteModal from "../modal";
 
 const Comment = () => {
-  const { isReplying, currentUser, comment, onNewReply } = useComment();
+  const { isReplying, currentUser, comment, onNewReply, modal } = useComment();
 
   if (!comment) {
     return null;
@@ -44,6 +45,7 @@ const Comment = () => {
           alt={currentUser.username}
         />
       )}
+      {modal && <DeleteModal />}
     </>
   );
 };
