@@ -16,6 +16,8 @@ const Comment = () => {
     return null;
   }
 
+  console.log(modal);
+
   return (
     <>
       <div className={styles.commentWrapper}>
@@ -37,6 +39,7 @@ const Comment = () => {
           ))}
         </div>
       )}
+      {modal && <DeleteModal />}
       {isReplying && (
         <NewCommentEditor
           onClick={onNewReply}
@@ -45,7 +48,6 @@ const Comment = () => {
           alt={currentUser.username}
         />
       )}
-      {modal && <DeleteModal />}
     </>
   );
 };

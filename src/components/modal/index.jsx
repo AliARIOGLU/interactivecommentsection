@@ -4,7 +4,7 @@ import { useComment } from "../comment/useComment";
 import styles from "./styles.module.scss";
 
 const DeleteModal = () => {
-  const { onDelete, openModal } = useComment();
+  const { onDelete, openModal, closeModal, modal } = useComment();
 
   return (
     <div className={styles.modal}>
@@ -15,7 +15,7 @@ const DeleteModal = () => {
           comment and can't be undone.
         </p>
         <div className={styles.buttons}>
-          <button className={styles.cancel} onClick={openModal}>
+          <button className={styles.cancel} onClick={closeModal}>
             NO, CANCEL
           </button>
           <button className={styles.delete} onClick={onDelete}>

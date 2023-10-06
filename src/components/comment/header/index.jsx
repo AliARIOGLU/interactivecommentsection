@@ -16,6 +16,7 @@ const Header = () => {
       createdAt,
       user: { image, username },
     },
+    setModal,
   } = useComment();
 
   const ownedByCurrentUser = currentUser.username === username;
@@ -31,12 +32,12 @@ const Header = () => {
       <div className={styles.actionButtons}>
         {ownedByCurrentUser ? (
           <>
-            <Button variant="warning" onClick={openModal}>
-              <img src="./images/icon-delete.svg" aria-hidden="true" />
+            <Button variant="warning" onClick={() => setModal(true)}>
+              <img src="./images/icon-delete.svg" />
               Delete
             </Button>
             <Button onClick={onEdit}>
-              <img src="./images/icon-edit.svg" aria-hidden="true" />
+              <img src="./images/icon-edit.svg" />
               Edit
             </Button>
           </>

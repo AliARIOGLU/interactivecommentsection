@@ -9,7 +9,11 @@ const CommentContextProvider = ({ children, data }) => {
   const [modal, setModal] = useState(false);
 
   const openModal = () => {
-    setModal(!modal);
+    setModal(true);
+  };
+
+  const closeModal = () => {
+    setModal(false);
   };
 
   const onReply = () => {
@@ -71,15 +75,17 @@ const CommentContextProvider = ({ children, data }) => {
       onDelete,
       onEdit,
       onUpdate,
+      setModal,
       onNewReply,
       openModal,
+      closeModal,
       onPositiveAction,
       onNegativeAction,
       isReplying,
       isEditing,
       modal,
     }),
-    [isReplying, comment, isEditing]
+    [isReplying, comment, isEditing, modal]
   );
 
   return (
