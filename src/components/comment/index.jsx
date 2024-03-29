@@ -16,8 +16,6 @@ const Comment = () => {
     return null;
   }
 
-  console.log(modal);
-
   return (
     <>
       <div className={styles.commentWrapper}>
@@ -44,6 +42,7 @@ const Comment = () => {
         <NewCommentEditor
           onClick={onNewReply}
           isReply
+          replyingTo={comment.user.username}
           image={currentUser.image.png}
           alt={currentUser.username}
         />

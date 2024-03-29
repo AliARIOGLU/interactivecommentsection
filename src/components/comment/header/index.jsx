@@ -1,7 +1,6 @@
 import React from "react";
 
 import { Button } from "../../button";
-import DeleteModal from "../../modal";
 
 import { useComment } from "../useComment";
 import styles from "./styles.module.scss";
@@ -16,7 +15,6 @@ const Header = () => {
       createdAt,
       user: { image, username },
     },
-    setModal,
   } = useComment();
 
   const ownedByCurrentUser = currentUser.username === username;
@@ -32,7 +30,13 @@ const Header = () => {
       <div className={styles.actionButtons}>
         {ownedByCurrentUser ? (
           <>
-            <Button variant="warning" onClick={() => setModal(true)}>
+            <Button
+              variant="warning"
+              onClick={(e) => {
+                e.stopPropagation();
+                openModal();
+              }}
+            >
               <img src="./images/icon-delete.svg" />
               Delete
             </Button>

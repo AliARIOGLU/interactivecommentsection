@@ -16,6 +16,7 @@ body {
   margin-top: 48px;
   display: grid;
   grid-template-columns: 1fr min(768px, 96%) 1fr;
+  padding-bottom: 16px;
 }
 
 .container > * {

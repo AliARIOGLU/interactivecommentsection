@@ -16,10 +16,22 @@
 
 .ghost {
   color: var(--moderate-blue);
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .warning {
   color: var(--soft-red);
+  transition: all 250ms ease-in-out;
+
+  &:hover {
+    background: rgb(100, 6, 6);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 1rem;
+  }
 }
 
 .primary {

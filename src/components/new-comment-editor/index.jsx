@@ -4,7 +4,13 @@ import { TextArea } from "../textarea";
 
 import styles from "./styles.module.scss";
 
-const NewCommentEditor = ({ isReply = false, image, alt, onClick }) => {
+const NewCommentEditor = ({
+  isReply = false,
+  image,
+  alt,
+  onClick,
+  replyingTo,
+}) => {
   const [comment, newComment] = useState("");
 
   const handleCommentChange = ({ target }) => {
@@ -24,7 +30,7 @@ const NewCommentEditor = ({ isReply = false, image, alt, onClick }) => {
       <TextArea
         value={comment}
         onChange={handleCommentChange}
-        placeholder="Add a comment..."
+        placeholder={isReply ? `Reply to ${replyingTo}` : "Add a comment..."}
       />
       <Button
         variant="primary"

@@ -6,6 +6,10 @@
   font-weight: 500;
   color: var(--moderate-blue);
   cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .updateButton {
